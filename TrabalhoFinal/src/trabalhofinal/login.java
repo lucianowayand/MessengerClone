@@ -211,7 +211,7 @@ public class login extends javax.swing.JFrame {
         System.out.println("Botao Conectar Pressionado.");
         String nomeDoUsuario = campoUsuario.getText();
         principal a = new principal();
-        //a.setarNome(nomeDoUsuario);
+        a.setarNome(nomeDoUsuario);
         a.setVisible(true);
         a.setLocationRelativeTo(null);
         this.dispose();
