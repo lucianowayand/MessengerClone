@@ -6,6 +6,10 @@
 package trabalhofinal;
 
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
@@ -231,18 +235,19 @@ public class login extends javax.swing.JFrame {
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
         System.out.println("Botao Conectar Pressionado.");
         String nomeDoUsuario = campoUsuario.getText();
-        principal a = new principal();
-        a.setarNome(nomeDoUsuario);
-        a.setLocationRelativeTo(null);
-        a.setVisible(true);
-        this.dispose();
 
         try {
             Servidor.getInstance().connect(nomeDoUsuario, ip, 8910);
             System.out.println("Conectamos!\n");
+            principal a = new principal();
+            a.setarNome(nomeDoUsuario);
+            a.setLocationRelativeTo(null);
+            a.setVisible(true);
+            this.dispose();
             
         } catch (IOException ex) {
-            System.out.println("Erro ao conectar\n" + ex);
+            JOptionPane.showMessageDialog(this,"Erro ao conectar\n" + ex,"ERRO!",JOptionPane.ERROR_MESSAGE);
+            
         }
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
@@ -261,7 +266,11 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_campoUsuarioKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ip = JOptionPane.showInputDialog("Insira o Endereço ip que se deseja usar:");
+        try {
+            ip = JOptionPane.showInputDialog("Insira o Endereço ip que se deseja usar:", Inet4Address.getLocalHost().getHostAddress());
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
