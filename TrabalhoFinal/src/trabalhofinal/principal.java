@@ -142,11 +142,6 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Usuários online", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-        usuariosOnline.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Jaasiel", "Luciano", "Fenandinha" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         usuariosOnline.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         usuariosOnline.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -219,7 +214,7 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
         String a = campoMensagem.getText();
-        chatBox.append(nomeUsuario.getText()+"->"+a+"\n");
+        chatBox.append(" "+nomeUsuario.getText()+" -> "+a+"\n");
         try {
             Servidor.getInstance().enviarMensagemPara(usuariosOnline.getSelectedValue(), a);
             campoMensagem.setText("");
