@@ -207,8 +207,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         login ab = new login();
-        ab.setVisible(true);
         ab.setLocationRelativeTo(null);
+        ab.setVisible(true);
         //Servidor.getInstance().interrupt();
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
