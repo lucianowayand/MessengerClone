@@ -147,6 +147,12 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 usuariosOnlineMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                usuariosOnlineMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuariosOnlineMouseClicked(evt);
+            }
         });
         jScrollPane2.setViewportView(usuariosOnline);
 
@@ -196,12 +202,7 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuariosOnlineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMousePressed
-        if (!usuariosOnline.getSelectedValue().equals("")) {
-            String nomeDestino = usuariosOnline.getSelectedValue();
-            this.nomeDestino.setText(nomeDestino);
-            ativar(true);  
-        
-        }
+
     }//GEN-LAST:event_usuariosOnlineMousePressed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -230,6 +231,18 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         }
     }//GEN-LAST:event_campoMensagemActionPerformed
+
+    private void usuariosOnlineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMouseClicked
+
+    }//GEN-LAST:event_usuariosOnlineMouseClicked
+
+    private void usuariosOnlineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMouseReleased
+        if (!usuariosOnline.isSelectionEmpty()) {
+            String nomeDestino = usuariosOnline.getSelectedValue();
+            this.nomeDestino.setText(nomeDestino);
+            ativar(true);
+        }
+    }//GEN-LAST:event_usuariosOnlineMouseReleased
 
 
     public static void main(String args[]) {
