@@ -218,13 +218,13 @@ public class login extends javax.swing.JFrame {
         String nomeDoUsuario = campoUsuario.getText();
         principal a = new principal();
         a.setarNome(nomeDoUsuario);
-        a.setVisible(true);
         a.setLocationRelativeTo(null);
+        a.setVisible(true);
         this.dispose();
 
         try {
             
-            Servidor.getInstance().connect(nomeDoUsuario, "192.168.1.108", 8910);
+            Servidor.getInstance().connect(nomeDoUsuario, "192.168.1.3", 8910);
             System.out.println("Conectamos!\n");
             
         } catch (IOException ex) {
