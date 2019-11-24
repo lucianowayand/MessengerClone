@@ -2,16 +2,19 @@
 package trabalhofinal;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 public class principal extends javax.swing.JFrame implements ObservadorDeMensagem{
-
+    Timestamp ts = new Timestamp(new Date().getTime());
     public principal() {
 
         initComponents();
         Servidor.getInstance().setObservadorDeMensagem(this);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -20,10 +23,14 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         chat = new javax.swing.JPanel();
         topInfo = new javax.swing.JPanel();
-        nomeUsuario = new javax.swing.JLabel();
-        nomeDestino = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        nomeUsuario = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        nomeDestino = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         nomeDestino1 = new javax.swing.JLabel();
         chatBoxx = new javax.swing.JPanel();
@@ -40,69 +47,51 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MSN");
+        getContentPane().setLayout(new java.awt.CardLayout(23, 23));
+
+        chat.setLayout(new java.awt.BorderLayout(10, 10));
 
         topInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         topInfo.setEnabled(false);
+        topInfo.setLayout(new java.awt.GridLayout(3, 1, 10, 5));
 
-        nomeUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nomeUsuario.setPreferredSize(new java.awt.Dimension(41, 18));
-
-        nomeDestino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nomeDestino.setPreferredSize(new java.awt.Dimension(0, 17));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Nome de usuário: ");
+        jPanel1.add(jLabel1);
+
+        nomeUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(nomeUsuario);
+
+        topInfo.add(jPanel1);
+
+        jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Destinatario:");
         jLabel2.setEnabled(false);
+        jPanel3.add(jLabel2);
+
+        nomeDestino.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.add(nomeDestino);
+        jPanel3.add(jDesktopPane1);
+
+        topInfo.add(jPanel3);
+
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Status:");
         jLabel3.setEnabled(false);
+        jPanel4.add(jLabel3);
 
         nomeDestino1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nomeDestino1.setPreferredSize(new java.awt.Dimension(0, 17));
+        jPanel4.add(nomeDestino1);
 
-        javax.swing.GroupLayout topInfoLayout = new javax.swing.GroupLayout(topInfo);
-        topInfo.setLayout(topInfoLayout);
-        topInfoLayout.setHorizontalGroup(
-            topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topInfoLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(topInfoLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomeDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(topInfoLayout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(topInfoLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nomeDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(132, 132, 132))
-        );
-        topInfoLayout.setVerticalGroup(
-            topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topInfoLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(nomeDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(topInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(nomeDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        topInfo.add(jPanel4);
+
+        chat.add(topInfo, java.awt.BorderLayout.NORTH);
 
         chatBoxx.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         chatBoxx.setEnabled(false);
@@ -140,6 +129,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         chatBoxx.add(jPanel2, java.awt.BorderLayout.SOUTH);
 
+        chat.add(chatBoxx, java.awt.BorderLayout.CENTER);
+
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Usuários online", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         usuariosOnline.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -147,36 +138,18 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 usuariosOnlineMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                usuariosOnlineMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuariosOnlineMouseClicked(evt);
+            }
         });
         jScrollPane2.setViewportView(usuariosOnline);
 
-        javax.swing.GroupLayout chatLayout = new javax.swing.GroupLayout(chat);
-        chat.setLayout(chatLayout);
-        chatLayout.setHorizontalGroup(
-            chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(chatBoxx, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(topInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        chatLayout.setVerticalGroup(
-            chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(chatLayout.createSequentialGroup()
-                        .addComponent(topInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chatBoxx, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        chat.add(jScrollPane2, java.awt.BorderLayout.WEST);
 
-        getContentPane().add(chat, java.awt.BorderLayout.CENTER);
+        getContentPane().add(chat, "card2");
 
         jMenu1.setText("Usuário");
 
@@ -196,40 +169,48 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuariosOnlineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMousePressed
-        if (!usuariosOnline.getSelectedValue().equals("")) {
-            String nomeDestino = usuariosOnline.getSelectedValue();
-            this.nomeDestino.setText(nomeDestino);
-            ativar(true);  
-        
-        }
+
     }//GEN-LAST:event_usuariosOnlineMousePressed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         login ab = new login();
-        ab.setVisible(true);
         ab.setLocationRelativeTo(null);
-        //Servidor.getInstance().interrupt();
+        ab.setVisible(true);
+        Servidor.getInstance().interrupt();
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
-        String a = campoMensagem.getText();
-        chatBox.append(" "+nomeUsuario.getText()+" -> "+a+"\n");
-        try {
-            Servidor.getInstance().enviarMensagemPara(usuariosOnline.getSelectedValue(), a);
-            campoMensagem.setText("");
-        } catch (IOException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+        if (!campoMensagem.getText().equals("")){
+            String a = campoMensagem.getText();
+            ts.setTime(new Date().getTime());
+            chatBox.append("["+ts.toString().substring(11, 16)+"] "+nomeUsuario.getText()+"->"+a+"\n");
+            chatBox.setCaretPosition(chatBox.getText().length());
+            try {
+                Servidor.getInstance().enviarMensagemPara(usuariosOnline.getSelectedValue(), a);
+                campoMensagem.setText("");
+            } catch (IOException ex) {
+                Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            campoMensagem.grabFocus();
         }
-
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     private void campoMensagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMensagemActionPerformed
-        if (!campoMensagem.getText().equals("")){
             botaoEnviarActionPerformed(evt);
-
-        }
     }//GEN-LAST:event_campoMensagemActionPerformed
+
+    private void usuariosOnlineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMouseClicked
+
+    }//GEN-LAST:event_usuariosOnlineMouseClicked
+
+    private void usuariosOnlineMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariosOnlineMouseReleased
+        if (!usuariosOnline.isSelectionEmpty()) {
+            String nomeDestino = usuariosOnline.getSelectedValue();
+            this.nomeDestino.setText(nomeDestino);
+            ativar(true);
+        }
+    }//GEN-LAST:event_usuariosOnlineMouseReleased
 
 
     public static void main(String args[]) {
@@ -270,13 +251,17 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     private javax.swing.JPanel chat;
     private javax.swing.JTextArea chatBox;
     private javax.swing.JPanel chatBoxx;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel nomeDestino;
@@ -290,9 +275,12 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     public void onMessageArrive(String message) {
         String [] array = message.split("->");
         if(array[0].equalsIgnoreCase("servidor")) {
+            String atual = usuariosOnline.getSelectedValue();
             usuariosOnline.setListData(array[2].split(","));
+            usuariosOnline.setSelectedValue(atual, true);
         }
-        chatBox.append(message + "\n");
+        ts.setTime(new Date().getTime());
+        chatBox.append("["+ts.toString().substring(11, 16)+"] "+message + "\n");
     }
     public void setarNome(String nome) {
         nomeUsuario.setText(nome);
