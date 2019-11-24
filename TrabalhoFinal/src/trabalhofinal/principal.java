@@ -176,7 +176,7 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
         login ab = new login();
         ab.setLocationRelativeTo(null);
         ab.setVisible(true);
-        Servidor.getInstance().interrupt();
+        Servidor.getInstance().stop();
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
