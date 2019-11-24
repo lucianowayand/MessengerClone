@@ -2,6 +2,8 @@
 package trabalhofinal;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
@@ -180,7 +182,9 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
         if (!campoMensagem.getText().equals("")){
             String a = campoMensagem.getText();
-            chatBox.append(nomeUsuario.getText()+"->"+a+"\n");
+            Date date = new Date();
+            Timestamp ts = new Timestamp(date.getTime());
+            chatBox.append("["+ts.toString().substring(10, 15)+"]"+nomeUsuario.getText()+"->"+a+"\n");
             chatBox.setCaretPosition(chatBox.getText().length());
             try {
                 Servidor.getInstance().enviarMensagemPara(usuariosOnline.getSelectedValue(), a);
