@@ -40,6 +40,9 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MSN");
+        getContentPane().setLayout(new java.awt.CardLayout(23, 23));
+
+        chat.setLayout(new java.awt.BorderLayout(10, 10));
 
         topInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         topInfo.setEnabled(false);
@@ -104,6 +107,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        chat.add(topInfo, java.awt.BorderLayout.NORTH);
+
         chatBoxx.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         chatBoxx.setEnabled(false);
         chatBoxx.setLayout(new java.awt.BorderLayout(0, 10));
@@ -140,6 +145,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
 
         chatBoxx.add(jPanel2, java.awt.BorderLayout.SOUTH);
 
+        chat.add(chatBoxx, java.awt.BorderLayout.CENTER);
+
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Usuários online", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         usuariosOnline.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -156,33 +163,9 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
         });
         jScrollPane2.setViewportView(usuariosOnline);
 
-        javax.swing.GroupLayout chatLayout = new javax.swing.GroupLayout(chat);
-        chat.setLayout(chatLayout);
-        chatLayout.setHorizontalGroup(
-            chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(chatBoxx, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(topInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        chatLayout.setVerticalGroup(
-            chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chatLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(chatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(chatLayout.createSequentialGroup()
-                        .addComponent(topInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chatBoxx, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        chat.add(jScrollPane2, java.awt.BorderLayout.WEST);
 
-        getContentPane().add(chat, java.awt.BorderLayout.CENTER);
+        getContentPane().add(chat, "card2");
 
         jMenu1.setText("Usuário");
 
