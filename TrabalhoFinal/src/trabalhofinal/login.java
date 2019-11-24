@@ -234,7 +234,7 @@ public class login extends javax.swing.JFrame {
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
         if (campoUsuario.getText().length() >= 6) {
-            botaoEnviar.setEnabled(true);
+            botaoEnviarActionPerformed(evt);
         }
     }//GEN-LAST:event_campoUsuarioActionPerformed
 
