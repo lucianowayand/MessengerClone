@@ -9,11 +9,12 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 public class principal extends javax.swing.JFrame implements ObservadorDeMensagem{
-
+    Timestamp ts = new Timestamp(new Date().getTime());
     public principal() {
 
         initComponents();
         Servidor.getInstance().setObservadorDeMensagem(this);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -182,9 +183,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
         if (!campoMensagem.getText().equals("")){
             String a = campoMensagem.getText();
-            Date date = new Date();
-            Timestamp ts = new Timestamp(date.getTime());
-            chatBox.append("["+ts.toString().substring(10, 15)+"]"+nomeUsuario.getText()+"->"+a+"\n");
+            ts.setTime(new Date().getTime());
+            chatBox.append("["+ts.toString().substring(11, 16)+"] "+nomeUsuario.getText()+"->"+a+"\n");
             chatBox.setCaretPosition(chatBox.getText().length());
             try {
                 Servidor.getInstance().enviarMensagemPara(usuariosOnline.getSelectedValue(), a);
@@ -279,7 +279,8 @@ public class principal extends javax.swing.JFrame implements ObservadorDeMensage
             usuariosOnline.setListData(array[2].split(","));
             usuariosOnline.setSelectedValue(atual, true);
         }
-        chatBox.append(message + "\n");
+        ts.setTime(new Date().getTime());
+        chatBox.append("["+ts.toString().substring(11, 16)+"] "+message + "\n");
     }
     public void setarNome(String nome) {
         nomeUsuario.setText(nome);
