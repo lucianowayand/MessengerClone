@@ -152,6 +152,11 @@ public class login extends javax.swing.JFrame {
                 campoUsuarioActionPerformed(evt);
             }
         });
+        campoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                campoUsuarioKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -180,6 +185,7 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(jPanel9);
 
         botaoEnviar.setText("Entrar");
+        botaoEnviar.setEnabled(false);
         botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEnviarActionPerformed(evt);
@@ -227,8 +233,18 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
-        botaoEnviarActionPerformed(evt);
+        if (campoUsuario.getText().length() >= 6) {
+            botaoEnviar.setEnabled(true);
+        }
     }//GEN-LAST:event_campoUsuarioActionPerformed
+
+    private void campoUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoUsuarioKeyReleased
+        if (campoUsuario.getText().length() >= 6) {
+            botaoEnviar.setEnabled(true);
+        }else {
+            botaoEnviar.setEnabled(false);
+        }
+    }//GEN-LAST:event_campoUsuarioKeyReleased
 
     /**
      * @param args the command line arguments
