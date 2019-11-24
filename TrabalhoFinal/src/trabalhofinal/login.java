@@ -6,6 +6,9 @@
 package trabalhofinal;
 
 import java.io.IOException;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -13,9 +16,7 @@ import java.io.IOException;
  */
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login
-     */
+    String ip = "";
     public login() {
         initComponents();
     }
@@ -41,7 +42,9 @@ public class login extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         campoUsuario = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         botaoEnviar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,12 +59,12 @@ public class login extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel10, java.awt.BorderLayout.WEST);
 
-        jPanel1.setLayout(new java.awt.GridLayout(10, 5));
+        jPanel1.setLayout(new java.awt.GridLayout(10, 5, 0, 10));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -71,7 +74,7 @@ public class login extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel8);
@@ -84,7 +87,7 @@ public class login extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel6);
@@ -104,7 +107,7 @@ public class login extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
@@ -117,7 +120,7 @@ public class login extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 43, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3);
@@ -141,7 +144,7 @@ public class login extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -166,23 +169,20 @@ public class login extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(campoUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(campoUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel5);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel9.setLayout(new java.awt.GridLayout(1, 0, 20, 10));
 
-        jPanel1.add(jPanel9);
+        jButton1.setText("Setar IP");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton1);
 
         botaoEnviar.setText("Entrar");
         botaoEnviar.setEnabled(false);
@@ -191,7 +191,22 @@ public class login extends javax.swing.JFrame {
                 botaoEnviarActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoEnviar);
+        jPanel9.add(botaoEnviar);
+
+        jPanel1.add(jPanel9);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 248, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 43, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel7);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -205,7 +220,7 @@ public class login extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel11, java.awt.BorderLayout.EAST);
@@ -223,8 +238,7 @@ public class login extends javax.swing.JFrame {
         this.dispose();
 
         try {
-            
-            Servidor.getInstance().connect(nomeDoUsuario, "192.168.1.3", 8910);
+            Servidor.getInstance().connect(nomeDoUsuario, ip, 8910);
             System.out.println("Conectamos!\n");
             
         } catch (IOException ex) {
@@ -245,6 +259,10 @@ public class login extends javax.swing.JFrame {
             botaoEnviar.setEnabled(false);
         }
     }//GEN-LAST:event_campoUsuarioKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ip = JOptionPane.showInputDialog("Insira o Endereço ip que se deseja usar:");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +302,7 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEnviar;
     private javax.swing.JTextField campoUsuario;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -294,6 +313,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
